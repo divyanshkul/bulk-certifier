@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Certifier</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="row col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="heading mt20">
+          <blockquote class="blockquote">
+            <p class="mb-0">Certifier</p>
+            <footer class="blockquote-footer"><cite title="Source Title">Generate Certificate</cite></footer>
+          </blockquote>
+        </div>
+
+        <!-- Individual certificate generator form -->
+        <form class="detail-form" method="POST" action="/generateCert">
+        <div class="optionText">
+          <h4 class="firstHeading">Enter individual details or</h4>          
+          <label class="checkbox-inline">
+            <input class="customCB" type="checkbox" name="customCB" value="1" onchange="valueChanged()"> Upload Custom CSV
+          </label>
+         </div> 
+          <div class="enter_custom">            
+            <div class="form-group">
+              <label for="name" class="nameform">Name</label>
+              <input type="name" class="form-control" id="name" placeholder="Enter name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="score">Score</label>
+              <input type="text" class="form-control" id="score" placeholder="Enter Score" name="score" required>
+            </div>
+            <div class="center">              
+              <button type="submit" id="download" class="btn btn-success btn-lg mt20">Download Certificates</button>
+            </div>
+          </div>
+          <!-- Upload Custom CSV File Forrm -->
+          <div class="upload_form">
+            <div class="form-group">
+              <label for="exampleFormControlFile1" class="uploadLabel">Upload the CSV file</label>
+              <input type="file" id="txtfiletoread" accept=".csv" class="margined"  />
+            </div>
+            <div class="center">
+              <!-- Button trigger modal and preview data -->
+              <button type="button" class="btn btn-primary btn-md mt20" data-toggle="modal" data-target="#exampleModalLong" onclick="handleFiles(txtfiletoread.files)" >
+              Preview Data
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Preview Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    <div class="modal-body">
+                      <p id="displayResults">
+                        <!-- Data from file goes here -->
+                      </p>        
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" id="download" class="btn btn-success btn-lg mt20">Download Certificates</button>
+            </div>          
+          </div>
+        </form>      
+      </div>
+    </div>
+  </body>
+</html>
